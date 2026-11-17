@@ -7,7 +7,7 @@ turn: turno-1
 
 # Diccionario de datos
 
-El contrato ejecutable es [modelo de datos](../30-arquitectura/modelo-datos.md) junto con `supabase/migrations/20261117000000_init_schema.sql` y `src/lib/validations/schema.types.ts`. Este archivo conserva el borrador del turno 1 y no se usa para crear tablas.
+Sustituido. El contrato vigente es `docs/30-arquitectura/modelo-datos.md` y los términos están en `docs/00-inicio/glosario.md`, junto con `supabase/migrations/20261117000000_init_schema.sql` y `src/lib/validations/schema.types.ts`. Este archivo conserva el borrador del turno 1, no se enlaza desde las notas activas y no se usa para crear tablas.
 
 Entidades y campos extraídos de la guía del 5 de noviembre, la entrevista del 4 de noviembre y el reparto de fases.
 
@@ -154,7 +154,7 @@ Lo que la IA saca de un audio, una nota o un texto de comparable. Confirmar en l
 
 ### `valuation_adjustments`
 
-Una fila por criterio aplicado. El catálogo de códigos está en las [reglas del valorador](reglas-valorador-ia.md).
+Una fila por criterio aplicado. El catálogo de códigos quedó en `docs/40-ia/valorador/criterios-valoracion.md`. Esta línea no enlaza: el borrador no debe volver al grafo activo.
 
 | Campo | Tipo | Notas |
 |---|---|---|

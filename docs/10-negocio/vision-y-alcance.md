@@ -11,7 +11,7 @@ sources:
 
 CRM operativo de RK Santos, construido por Solfico. Cada oportunidad de valoración queda con datos de procedencia conocida, un responsable, un rango reproducible y una aprobación humana antes de salir hacia el propietario.
 
-Documento base a 17 de noviembre de 2026. Sustituye, para el producto, la recomendación abierta del 5 de noviembre («configurar primero el CRM existente y desarrollar solo lo que sobre»). El contrato con criterios de aceptación está en [PRD](../20-producto/prd.md). La entrevista del 4 de noviembre fijó el recorte: Inmovilla se queda como pasarela de publicación; el hueco a construir es el valorador parametrizado y, después, el control de contactos y expedientes que hoy no se usa. Ver [ADR-001](../30-arquitectura/adr/registro.md) y [entrevista](../60-cliente/reuniones/2026-11-17-entrevista-raul.md).
+Documento base a 17 de noviembre de 2026. Sustituye, para el producto, la recomendación abierta del 5 de noviembre («configurar primero el CRM existente y desarrollar solo lo que sobre»). El contrato con criterios de aceptación está en [PRD](../../PRD.md). La entrevista del 4 de noviembre fijó el recorte: Inmovilla se queda como pasarela de publicación; el hueco a construir es el valorador parametrizado y, después, el control de contactos y expedientes que hoy no se usa. Ver [ADR-001](../30-arquitectura/adr/registro.md) y [entrevista](../60-cliente/reuniones/2026-11-17-entrevista-raul.md).
 
 ## Resultado que busca Raúl
 
@@ -54,6 +54,8 @@ Una persona puede ser propietaria y compradora. Las fichas se relacionan.
 | Horus (Orus) | Referencia de método: fases, checklist, roles y puntos del círculo. Se conserva mientras RK lo exija. No se duplica su tienda, su formación ni Magnus |
 | Drive | Deja de ser el archivo de fichas cuando el expediente exista |
 | IA | Normaliza, propone ajustes y redacta el borrador. No fija el precio ni habla con el cliente |
+
+El porqué de ese reparto —Horus como método que no se opera, Inmovilla como tubería que se mantiene— está en la [auditoría de herramientas](auditoria-herramientas.md).
 
 ## Roles
 

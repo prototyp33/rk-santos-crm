@@ -30,7 +30,7 @@ Una ADR aceptada se mantiene. Para cambiarla se añade otra que la sustituya. El
 ## ADR-004. La valoración es un cálculo con revisión humana
 
 - Estado: aceptada · 2026-11-17
-- Decisión: la fórmula, los códigos de ajuste y el semáforo viven en `reglas-valorador-ia.md`. El modelo rellena un borrador Zod. Sin comparables suficientes, `point_estimate` es nulo. El estado `approved` de esta ADR queda sustituido por `internal_validated` (ADR-009).
+- Decisión: la fórmula, los códigos de ajuste y el semáforo viven en `docs/40-ia/valorador/reglas-valorador-ia.md`. El modelo rellena un borrador Zod. Sin comparables suficientes, `point_estimate` es nulo. El estado `approved` de esta ADR queda sustituido por `internal_validated` (ADR-009).
 - Consecuencias: un peso nuevo no se escribe solo en el prompt. El descuento de oferta a cierre no tiene valor hasta que Raúl lo fije (ADR-005).
 
 ## ADR-005. El descuento oferta→cierre queda sin número
@@ -71,4 +71,12 @@ Una ADR aceptada se mantiene. Para cambiarla se añade otra que la sustituya. El
 - Sustituye: la frase de ADR-003 que reserva al supervisor toda aprobación de la valoración, y la frase de ADR-009 que deja la ficha solo en `draft` o `internal_validated`. Se mantiene que el supervisor aprueba las excepciones de peso, que el rol se lee de `app_metadata` y que el PDF exige `internal_validated`.
 - Contexto: un agente nuevo tiene que obtener una valoración con los mismos criterios. El criterio de Raúl entra cuando la cifra no sale o un ajuste se sale de banda. La coordinadora necesita ver la oficina en la fase 1; su revisión documental es la fase 2.
 - Decisión: el agente pasa la ficha a `internal_validated` cuando hay `point_estimate`, la confianza no es `insufficient` y todos los deltas están dentro de su banda. Si falta alguna de esas tres condiciones, la ficha queda en `pending_supervisor` y solo el supervisor la valida. Un delta fuera de banda solo lo guarda el supervisor. En la fase 1 la coordinadora ve las valoraciones de toda la agencia en solo lectura. No hay pantalla de checklists ni de documentos. El alta es por invitación.
-- Consecuencias: el contrato comprobable está en [PRD](../../20-producto/prd.md). Al implementar la fase 1, el estado que habilita el PDF es `internal_validated`. El valor `approved` del enum actual no cumple ese criterio. Las políticas de checklist ya existentes no se exponen en pantalla hasta la fase 2.
+- Consecuencias: el contrato comprobable está en [PRD](../../../../PRD.md). Al implementar la fase 1, el estado que habilita el PDF es `internal_validated`. El valor `approved` del enum actual no cumple ese criterio. Las políticas de checklist ya existentes no se exponen en pantalla hasta la fase 2.
+
+## ADR-011. Núcleo de agentes en la raíz
+
+- Estado: aceptada · 2026-11-17
+- Sustituye: la frase de ADR-007 que guarda el estado del sprint dentro de `docs/`, y la consecuencia que prohíbe otro resumen del sprint. La bóveda sigue siendo la memoria larga.
+- Contexto: Cursor, Claude Code y otros agentes leen la raíz del repositorio. Un PRD solo dentro de `docs/` no entra en ese recorrido.
+- Decisión: el núcleo es `PRD.md`, `AGENTS.md`, `CLAUDE.md` (una línea, `@AGENTS.md`), `PLANNING.md` y `TASKS.md`. `TASKS.md` es la única lista de tareas. `docs/00-inicio/contexto-activo.md` guarda el relato del momento y enlaza esa lista. `docs/20-producto/prd.md` es un puntero y no se edita. La visión, las actas, el modelo de datos, las ADR y las reglas del valorador siguen en `docs/`.
+- Consecuencias: no se mantiene una segunda copia del PRD ni una segunda lista de tareas. Al cerrar trabajo se marca `TASKS.md` y se actualiza el relato.

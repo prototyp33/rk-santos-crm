@@ -3,6 +3,8 @@
 **Cliente:** RK Santos (Raúl Santos) · **Consultora:** Solfico · **Versión:** 1.1 (final) · 17/11/2026
 **Stack:** Supabase (PostgreSQL 15+, Auth, Storage privado con RLS) · Next.js App Router · TypeScript estricto · Vercel AI SDK 6 + Zod 4
 
+Los nombres de dominio están en el [glosario](../00-inicio/glosario.md). Este archivo es el contrato de tablas. El borrador del turno 1 no forma parte del contrato.
+
 | Archivo | Contenido |
 |---|---|
 | `supabase/migrations/20261117000000_init_schema.sql` | Migración única y ejecutable: enums, 36 tablas, triggers, helpers, RLS, buckets y políticas de Storage, cruce |

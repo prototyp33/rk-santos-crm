@@ -12,7 +12,7 @@ Puntos de trabajo de la reunión del 4 de noviembre de 2026 (09:38, 52 min). Ra�
 
 ## Decisiones que salen de la reunión
 
-1. Inmovilla se queda para publicar en la web, la MLS y los portales. El resto de su CRM no es prioritario.
+1. Inmovilla se queda para publicar en la web, la MLS y los portales. El resto de su CRM no es prioritario. El contraste entre lo publicado y lo que Raúl usa está en la [auditoría de herramientas](../../10-negocio/auditoria-herramientas.md).
 2. Solfico monta un valorador con IA detrás, con pinta de valorador normal, y Raúl lo prueba. Cada corrección suya entra en los parámetros.
 3. Horus es el núcleo deseado para el agente y el expediente, y hoy no se lleva al día. El círculo de influencia no existe como registro.
 4. La documentación útil está descrita en Horus (nota simple, mandato, escritura, DNI, comunidad) y en la práctica vive en Drive, incompleta.

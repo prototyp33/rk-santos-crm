@@ -18,7 +18,7 @@ tags: []
 ```
 
 - Enlaces con ruta relativa: `[Título](../carpeta/archivo.md)`. Sin `[[wikilinks]]`.
-- El estado vivo se escribe solo en `docs/00-inicio/contexto-activo.md`.
+- La lista de tareas se escribe solo en `TASKS.md`, en la raíz. `docs/00-inicio/contexto-activo.md` guarda el relato y enlaza esa lista.
 - No crees `index.md` ni `log.md`.
 - Una spec va en `docs/20-producto/specs/`, copiada de `docs/_sistema/plantillas/plantilla-spec.md`.
 - Una ADR nueva va en `docs/30-arquitectura/adr/`. No reescribas una ADR aceptada.

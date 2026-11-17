@@ -8,6 +8,8 @@ tags:
 
 # Glosario
 
+Las tablas que usan estos términos están en el [modelo de datos](../30-arquitectura/modelo-datos.md).
+
 | Término | Significado |
 |---|---|
 | Pipeline | Ocho fases, en este orden: `circulo_influencia`, `prospecto`, `captacion`, `documentacion`, `publicacion`, `visitas`, `cierre`, `notaria` |

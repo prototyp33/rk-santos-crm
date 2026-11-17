@@ -8,7 +8,7 @@ tags:
 
 # Roadmap
 
-El esquema de base existe desde el día 1. Las pantallas salen por fases. El contrato de producto y los criterios de la fase 1 están en [PRD](prd.md).
+El esquema de base existe desde el día 1. Las pantallas salen por fases. El contrato de producto y los criterios de la fase 1 están en [PRD](../../PRD.md). Las tablas vigentes están en [modelo de datos](../30-arquitectura/modelo-datos.md) y los términos, en el [glosario](../00-inicio/glosario.md).
 
 | Fase de pantallas | Incluye |
 |---|---|
@@ -37,4 +37,4 @@ Ninguna existe todavía.
 | `src/app/(dashboard)/expedientes/[id]` | 2 |
 | `src/app/api/webhooks/n8n` | 2 |
 
-Las especificaciones de cada pantalla van en [specs](specs/).
+Las especificaciones de cada pantalla van en [specs](specs/). La primera es [SPEC-001 Valorador IA](specs/SPEC-001-valorador-ia.md).

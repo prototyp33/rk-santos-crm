@@ -6,7 +6,9 @@ status: hipotesis-pendiente-de-raul
 
 # Reglas del valorador IA
 
-Cálculo reproducible de una estimación comercial de precio de salida. Los deltas son hipótesis de trabajo del 17 de noviembre: Raúl no dio pesos en la entrevista. Cada vez que corrija una valoración, el delta tocado se actualiza aquí y en el esquema Zod, con la fecha en el historial del final.
+Hipótesis de negocio: pesos, bandas y semáforo de una estimación comercial de precio de salida. Los deltas son del 17 de noviembre: Raúl no dio pesos en la entrevista. Cada corrección suya se anota aquí y en el esquema Zod, con la fecha en el historial del final.
+
+Cómo el sistema aplica estos pesos está en [reglas del valorador](reglas-valorador-ia.md). El flujo de pantalla está en [SPEC-001](../../20-producto/specs/SPEC-001-valorador-ia.md).
 
 La tasación oficial, el valor fiscal y el precio de un anuncio ajeno presentado como propio quedan fuera de este cálculo.
 
@@ -98,7 +100,7 @@ Por debajo del punto no se pinta de rojo. Se explica como margen para vender ant
 
 1. El modelo devuelve borrador, ajustes propuestos, huecos y limitaciones. Cada extracción de audio, nota o texto queda en `valuation_extractions` con `pending_review`.
 2. El agente confirma o descarta cada extracción. Confirmar escribe el campo consolidado.
-3. El agente pasa la ficha a `internal_validated` en el caso normal. Si no hay cifra, la confianza es `insufficient` o un delta se sale de banda, la ficha queda en `pending_supervisor` y solo el supervisor la valida. El detalle está en [ADR-010](../../30-arquitectura/adr/registro.md) y en el [PRD](../../20-producto/prd.md).
+3. El agente pasa la ficha a `internal_validated` en el caso normal. Si no hay cifra, la confianza es `insufficient` o un delta se sale de banda, la ficha queda en `pending_supervisor` y solo el supervisor la valida. El detalle está en [ADR-010](../../30-arquitectura/adr/registro.md) y en el [PRD](../../../PRD.md).
 4. El PDF se genera solo si `status === internal_validated`. En otro estado el servidor responde 403. El payload pasa por `ExternalValuationPdfSchema`.
 
 El PDF de cliente incluye: datos del inmueble con su procedencia, comparables por zona y precio (sin dirección ajena ni URL), ajustes con su frase, mínimo, mercado y salida, semáforo, argumentos, limitaciones y la frase de que es una estimación comercial de precio de salida. Incluye también el bloque de servicios de la agencia.

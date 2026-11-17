@@ -4,5 +4,9 @@
   "attachmentFolderPath": "_sistema/adjuntos",
   "showFrontmatter": true,
   "newFileLocation": "folder",
-  "newFileFolderPath": "00-inicio"
+  "newFileFolderPath": "00-inicio",
+  "userIgnoreFilters": [
+    "_sistema/",
+    "90-archivo/"
+  ]
 }

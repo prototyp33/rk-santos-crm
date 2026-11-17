@@ -1,0 +1,29 @@
+---
+description: Frontmatter y enlaces de la bóveda docs/
+globs: docs/**/*.md
+alwaysApply: false
+---
+
+# Notas de la bóveda
+
+Cada nota nueva en `docs/` abre con:
+
+```yaml
+---
+title:
+date: YYYY-MM-DD
+status: borrador
+tags: []
+---
+```
+
+- Enlaces con ruta relativa: `[Título](../carpeta/archivo.md)`. Sin `[[wikilinks]]`.
+- El estado vivo se escribe solo en `docs/00-inicio/contexto-activo.md`.
+- No crees `index.md` ni `log.md`.
+- Una spec va en `docs/20-producto/specs/`, copiada de `docs/_sistema/plantillas/plantilla-spec.md`.
+- Una ADR nueva va en `docs/30-arquitectura/adr/`. No reescribas una ADR aceptada.
+
+```md
+# Mal: [[vision-y-alcance]]
+# Bien: [Visión y alcance](../10-negocio/vision-y-alcance.md)
+```

@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+.grok-*.xml
+node_modules/
+.next/
+dist/
+.DS_Store
+supabase/.temp/
+supabase/.branches/

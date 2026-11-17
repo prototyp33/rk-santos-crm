@@ -1,0 +1,34 @@
+---
+description: Reglas globales de arquitectura, dominio inmobiliario RK Santos y límites del alcance.
+alwaysApply: true
+---
+
+# Guardrails globales · CRM IA RK Santos (Solfico)
+
+## Contexto y stack
+
+- Proyecto: CRM inmobiliario a medida con IA para RK Santos (Vilanova i la Geltrú / Sitges).
+- Stack: Next.js (App Router), TypeScript estricto (`strict: true`, sin `any`), Tailwind CSS + shadcn/ui, Supabase (PostgreSQL + RLS + Storage), Vercel AI SDK + Zod.
+- Estrategia: database-first, esquema completo desde el día 1, entrega de pantallas por fases. La fase 1 en curso es Auth/Roles + Valorador IA.
+
+## Dominio inmobiliario
+
+1. Pipeline comercial, en este orden y con estos ocho valores:
+   `circulo_influencia` → `prospecto` → `captacion` → `documentacion` → `publicacion` → `visitas` → `cierre` → `notaria`.
+2. Roles:
+   - `agent`: ve y gestiona solo sus contactos, propiedades, valoraciones y expedientes.
+   - `coordinator`: revisa checklists documentales y expedientes de toda la agencia. No altera los parámetros maestros del valorador.
+   - `supervisor` (Raúl Santos): visibilidad de toda la agencia y control exclusivo de los parámetros maestros del valorador.
+3. Fuera de alcance:
+   - Scrapers e integraciones API con Idealista, Fotocasa, Habitaclia o Pisos.com.
+   - La pasarela de publicación en portales y la MLS. Esa función permanece en Inmovilla.
+
+## Código
+
+- Server Components por defecto. `'use client'` solo cuando hay interactividad.
+- Toda mutación pasa por una Server Action o un Route Handler validado con un esquema Zod de `src/lib/validations/`.
+
+```ts
+// Mal: export async function saveValuation(input: any)
+// Bien: export async function saveValuation(input: unknown) { ValuationInputSchema.parse(input) }
+```

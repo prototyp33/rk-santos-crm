@@ -1,0 +1,18 @@
+---
+description: Dónde viven los prompts y las evaluaciones del valorador
+globs: docs/40-ia/**/*.md, src/lib/validations/**/*.ts, src/app/api/ai/**/*.ts
+alwaysApply: false
+---
+
+# Prompts del valorador
+
+- Un prompt, un archivo, en `docs/40-ia/valorador/prompts/`, desde `docs/_sistema/plantillas/plantilla-prompt.md`.
+- Los casos de evaluación van en `docs/40-ia/valorador/evals/`.
+- La salida estructurada usa los esquemas de `src/lib/validations/schema.types.ts`.
+- Los pesos no se reescriben en el prompt: se leen de `docs/40-ia/valorador/criterios-valoracion.md`.
+- El prompt no recibe notas internas, honorarios ni datos de otros contactos. Ningún ejemplo lleva datos reales de un cliente.
+
+```md
+# Mal: pegar el prompt solo dentro de route.ts
+# Bien: el archivo de prompt en docs/40-ia/valorador/prompts/ y el route lo aplica
+```

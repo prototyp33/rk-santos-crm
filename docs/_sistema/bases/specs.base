@@ -1,0 +1,10 @@
+filters:
+  and:
+    - file.inFolder("20-producto/specs")
+views:
+  - type: table
+    name: Specs
+    order:
+      - file.name
+      - status
+      - tipo

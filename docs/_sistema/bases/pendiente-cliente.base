@@ -1,0 +1,10 @@
+filters:
+  and:
+    - status == "pendiente-cliente"
+views:
+  - type: table
+    name: Pendiente del cliente
+    order:
+      - file.name
+      - date
+      - status

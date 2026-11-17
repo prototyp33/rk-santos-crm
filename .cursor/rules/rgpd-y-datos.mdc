@@ -1,0 +1,16 @@
+---
+description: Prohibición de datos reales de clientes en repo y bóveda
+alwaysApply: true
+---
+
+# RGPD y datos
+
+- Un nombre, teléfono, DNI o dirección de un cliente real no entra en el código, en `supabase/seed/` ni en `docs/`.
+- Los ejemplos usan personas y direcciones inventadas. Un caso de RK Santos se anonimiza antes de guardarlo.
+- Los documentos sensibles van a buckets privados. La URL de lectura caduca como máximo a los 300 segundos.
+- El rol se lee de `app_metadata` o de `profiles`. `user_metadata` no autoriza.
+
+```md
+# Mal: seed con el teléfono que dictó el propietario en la visita
+# Bien: teléfono 600000001 y un nombre ficticio
+```

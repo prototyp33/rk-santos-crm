@@ -1,0 +1,18 @@
+---
+description: Reglas de seguridad Supabase, Row Level Security (RLS), Storage privado y cumplimiento RGPD.
+globs: supabase/**/*, src/lib/supabase/**/*, src/app/api/**/*
+alwaysApply: false
+---
+
+# Seguridad Supabase y cumplimiento RGPD
+
+1. Toda tabla nueva en `supabase/migrations/` incluye `ALTER TABLE ... ENABLE ROW LEVEL SECURITY;` y políticas distintas para `agent`, `coordinator` y `supervisor`. El rol se lee de `app_metadata`. `user_metadata` no autoriza.
+2. DNI, nota simple, escrituras, mandatos, audios de visita y PDF de valoración van a buckets privados (`public = false`).
+3. El acceso a un archivo sale de `createSignedUrl()` con caducidad máxima de 300 segundos. Una URL pública permanente no sirve.
+4. `supabase/seed/` es ficticio: nombres inventados, DNI sintéticos de prueba y teléfonos ficticios. Un dato real de un cliente de RK Santos no entra en el repositorio.
+
+```sql
+-- Mal: create policy "all" on public.contacts for all using (true);
+-- Bien: políticas separadas que comprueben owner_id = auth.uid()
+--   o (auth.jwt() -> 'app_metadata' ->> 'role') en ('coordinator', 'supervisor')
+```

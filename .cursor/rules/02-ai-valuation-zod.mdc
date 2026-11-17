@@ -1,0 +1,30 @@
+---
+description: Arquitectura Human-in-the-Loop en 2 etapas y validación Zod para el Valorador IA.
+globs: src/app/**/valuations/**/*, src/app/api/ai/**/*, src/lib/validations/**/*, src/lib/pdf/**/*
+alwaysApply: false
+---
+
+# Valorador IA (human-in-the-loop)
+
+Los pesos viven en `docs/40-ia/valorador/criterios-valoracion.md`. El endpoint los aplica.
+
+1. Un dato extraído por IA desde un audio de visita, una nota libre o un texto de comparable se estructura así. `value` lleva el Zod del campo (número, texto o enum). `any` no se usa.
+
+```ts
+z.object({
+  value: z.number(),
+  confidence: z.number().min(0).max(1),
+  source_quote: z.string().min(1),
+})
+```
+
+2. Esa extracción se guarda en `pending_review`. No escribe un campo consolidado de la valoración hasta que el usuario lo confirma en la UI.
+3. Estados de la ficha:
+   - `draft`: borrador en edición o con extracciones sin confirmar.
+   - `internal_validated`: la ha validado el agente o el supervisor. Lleva rango mínimo, precio de mercado y precio de salida, semáforo, argumentos comerciales y las alertas internas.
+4. El generador del PDF para el propietario comprueba en servidor `status === 'internal_validated'`. En otro estado responde 403. El payload pasa por `ExternalValuationPdfSchema`, que quita notas internas, alertas de riesgo, márgenes de negociación y `source_quote`.
+
+```ts
+// Mal: renderPdf(valuation) con status === "draft"
+// Bien: if (valuation.status !== "internal_validated") return new Response(null, { status: 403 })
+```

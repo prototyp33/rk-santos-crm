@@ -1,0 +1,8 @@
+{
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "attachmentFolderPath": "_sistema/adjuntos",
+  "showFrontmatter": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00-inicio"
+}

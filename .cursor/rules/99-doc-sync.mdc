@@ -1,0 +1,17 @@
+---
+description: Protocolo para mantener actualizada la documentación viva en docs/ tras cada bloque de trabajo.
+alwaysApply: true
+---
+
+# Documentación viva
+
+Al cerrar una tarea estructural, un cambio de esquema o una funcionalidad nueva:
+
+1. Actualiza `docs/00-inicio/contexto-activo.md` con lo completado, los archivos creados o modificados y el paso inmediato siguiente.
+2. Si cambió una tabla o una columna en `supabase/migrations/`, actualiza `docs/30-arquitectura/modelo-datos.md`.
+3. Si hubo una decisión técnica (librería, patrón de estado, diseño de prompt), añade una ADR en `docs/30-arquitectura/adr/`. Una ADR aceptada se mantiene; el cambio va en una ADR nueva.
+
+```md
+# Mal: crear la ruta /valuations/[id] y dejar el inventario de rutas como estaba
+# Bien: anotar la ruta en docs/00-inicio/contexto-activo.md en el mismo cambio
+```
